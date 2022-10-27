@@ -19,7 +19,7 @@ double[,] GetArray(int m, int n)
     {
         for (int L = 0; L < n; L++)
         {
-            arr[i, L] = Math.Round(a - rnd.NextDouble() * (1000 + 1000), 2);
+            arr[i, L] = Math.Round(a - rnd.NextDouble() * (1000), 2);
         }
     }
     return arr;
@@ -42,7 +42,7 @@ void Printarray(double[,] array)
 /*
 Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
 */
-
+/*
 Console.WriteLine("введите номер строки");
 int n = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("введите номер столбца");
@@ -83,4 +83,54 @@ if (n > arr.GetLength(0) || m > arr.GetLength(1))
 else
 {
     Console.WriteLine($"строке {n} и столбцу {m} принадлежит значение {arr[n - 1, m - 1]}");
+}
+*/
+
+/*
+Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+*/
+
+Console.WriteLine("Введите количество строк");
+int m = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите количество столбцов");
+int n = int.Parse(Console.ReadLine()!);
+int[,] arr = GetArray(m, n);
+Printarray(arr);
+PrintSrArif(arr);
+
+int[,] GetArray(int m, int n)
+{
+    int[,] arr = new int[m, n];
+    for (int i = 0; i < m; i++)
+    {
+        for (int L = 0; L < n; L++)
+        {
+            arr[i, L] = new Random().Next(-100, 100);
+        }
+    }
+    return arr;
+}
+void Printarray(int[,] Array)
+{
+    for (int i = 0; i < Array.GetLength(0); i++)
+    {
+        Console.Write("[ ");
+        for (int j = 0; j < Array.GetLength(1); j++)
+        {
+            Console.Write($"{Array[i, j]}  ");
+        }
+        Console.WriteLine("]");
+    }
+}
+
+void PrintSrArif(int[,] Array)
+{
+    double sum = 0;
+    for (int j = 0; j < Array.GetLength(0); j++)
+    {
+        for (int i = 0; i < Array.GetLength(1); i++){
+            sum+=Array[i,j];
+        }
+        Console.WriteLine($"Среднее арифметическое солбца {j+1} равна {Math.Round((sum/Array.GetLength(0)),2)}");
+    }
 }
