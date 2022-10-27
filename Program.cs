@@ -89,7 +89,7 @@ else
 /*
 Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 */
-
+/*
 Console.WriteLine("Введите количество строк");
 int m = int.Parse(Console.ReadLine()!);
 Console.WriteLine("Введите количество столбцов");
@@ -134,3 +134,4 @@ void PrintSrArif(int[,] Array)
         Console.WriteLine($"Среднее арифметическое солбца {j+1} равна {Math.Round((sum/Array.GetLength(0)),2)}");
     }
 }
+*/
